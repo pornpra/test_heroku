@@ -13,18 +13,23 @@ def predict():
     res = pi.predicting(p_image_url)
 
     if res == 0:
-        return 'สิวของคุณอยู่ในระดับเล็กน้อย (Level 0) คำแนะนำ คือ ล้างหน้าอย่างสม่ำเสมอและพักผ่อนให้เพียงพอ'
+        output = 'สิวของคุณอยู่ในระดับเล็กน้อย (Level 0) คำแนะนำ คือ ล้างหน้าอย่างสม่ำเสมอและพักผ่อนให้เพียงพอ'
+        #return output
     elif res == 1:
-        return 'สิวของคุณอยู่ในระดับปานกลาง (Level 1) คำแนะนำ คือ ใช้ยาแต้มสิว'
+        output = 'สิวของคุณอยู่ในระดับปานกลาง (Level 1) คำแนะนำ คือ ใช้ยาแต้มสิว'
+        #return output
     elif res == 2:
-        return 'สิวของคุณอยู่ในระดับรุนแรง (Level 2) คำแนะนำ คือ ควรรีบมาพบแพทย์เฉพาะทาง ติดต่อจองคิวได้ที่ 02-999-9999'
+        output = 'สิวของคุณอยู่ในระดับรุนแรง (Level 2) คำแนะนำ คือ ควรรีบมาพบแพทย์เฉพาะทาง ติดต่อจองคิวได้ที่ 02-xxx-xxxx'
+        #return output
     else:
-        return 'ส่งรูปภาพสิวของคุณมาใหม่อีกครั้ง'
+        output = 'ส่งรูปภาพสิวของคุณมาใหม่อีกครั้ง'
+        #return output
 
-    result = {'result':res}
+    result = {'result':output}
     #jsonify(result)
 
-    return str(res)
+    return jsonify(result)
+    #str(res)
 
 if __name__ == '__main__':
     app.run(debug=True)
